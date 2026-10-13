@@ -1,0 +1,12 @@
+/* Pirenily UI: everything in one link. Or pick only the files you need
+   (tokens.css always comes first). */
+@import url("tokens.css");
+@import url("base.css");
+@import url("components/nav.css");
+@import url("components/finder.css");
+@import url("components/footer.css");
+@import url("components/pills.css");
+@import url("components/project-card.css");
+@import url("components/content.css");
+@import url("components/overlays.css");
+@import url("components/case-study.css");

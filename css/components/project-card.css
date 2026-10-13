@@ -1,0 +1,183 @@
+/* =========================================================
+   Project card: screenshot on top, italic title with tag chips,
+   subtitle + date, one-line description. Link cards (a.project-thumb)
+   blur on hover; plain divs stay still.
+   .project-grid puts them two-up with subgrid rows so side-by-side
+   cards line up and end at the same height.
+   ========================================================= */
+.project-thumb {
+    display: block;
+    width: min(720px, 86vw);
+    overflow: hidden;
+    text-decoration: none;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--r-lg);
+    backdrop-filter: blur(2px);
+    transition: filter var(--dur-2) var(--ease-out), border-color var(--dur-2) var(--ease-out);
+}
+
+a.project-thumb:hover,
+a.project-thumb:focus-visible {
+    border-color: var(--hairline-hover);
+    filter: var(--hover-blur);
+}
+
+.project-thumb-img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* Mixed artwork shapes: crop to one frame so cards line up */
+.project-thumb-img--cover {
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+.project-thumb-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 16 / 9;
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--card-placeholder);
+    background: var(--glass-3);
+    border-bottom: 1px dashed var(--card-placeholder-line);
+}
+
+.project-thumb-placeholder--blank {
+    background: var(--bg);
+    border-bottom: none;
+}
+
+.project-thumb-meta {
+    padding: 0.9rem var(--s-4) var(--s-4);
+    font-family: var(--font-serif);
+    font-style: italic;
+}
+
+.project-thumb-namebox,
+.project-thumb-subrow {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--s-3);
+}
+
+.project-thumb-namebox {
+    align-items: flex-start;
+}
+
+.project-thumb-subrow {
+    align-items: baseline;
+    margin-top: var(--s-1);
+}
+
+.project-thumb-title {
+    font-size: 1.2rem;
+    color: var(--card-title);
+}
+
+.project-thumb-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    flex-shrink: 0;
+    gap: 0.3rem;
+}
+
+.project-thumb-sub {
+    font-size: 0.95rem;
+    color: var(--pill-text);
+}
+
+.project-thumb-date {
+    flex-shrink: 0;
+    font-size: var(--fs-1);
+    color: var(--card-date);
+    white-space: nowrap;
+}
+
+.project-thumb-desc {
+    margin-top: 0.35rem;
+    font-size: var(--fs-1);
+    color: var(--card-desc);
+}
+
+/* ----- Two-up grid ----- */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--s-6);
+    row-gap: 0;
+    width: min(1100px, 86vw);
+    margin: 0 auto;
+}
+
+.project-grid .project-thumb {
+    width: 100%;
+    margin-bottom: var(--s-7);
+}
+
+@media screen and (min-width: 881px) {
+    .project-grid .project-thumb {
+        display: grid;
+        grid-row: span 4;
+        grid-template-rows: subgrid;
+        row-gap: 0;
+    }
+
+    .project-grid .project-thumb-img {
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+    }
+
+    .project-grid .project-thumb-meta {
+        display: contents;
+    }
+
+    .project-grid .project-thumb-namebox {
+        padding: 0.9rem var(--s-4) 0;
+    }
+
+    /* Half-width cards are narrow: long pill lists wrap */
+    .project-grid .project-thumb-tags {
+        flex-shrink: 1;
+        max-width: 60%;
+    }
+
+    .project-grid .project-thumb-subrow {
+        padding: 0 var(--s-4);
+    }
+
+    .project-grid .project-thumb-desc {
+        padding: 0 var(--s-4) var(--s-4);
+    }
+}
+
+@media screen and (max-width: 880px) {
+    .project-grid {
+        grid-template-columns: 1fr;
+        width: min(720px, 86vw);
+    }
+}
+
+/* Phones: title > subtitle > tags > description > date */
+@media screen and (max-width: 666px) {
+    .project-thumb-meta {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .project-thumb-namebox,
+    .project-thumb-subrow {
+        display: contents;
+    }
+
+    .project-thumb-title { order: 1; }
+    .project-thumb-sub { order: 2; margin-top: var(--s-2); }
+    .project-thumb-tags { order: 3; justify-content: flex-start; margin-top: 0.4rem; }
+    .project-thumb-desc { order: 4; margin-top: 0.4rem; }
+    .project-thumb-date { order: 5; margin-top: 0.4rem; }
+}

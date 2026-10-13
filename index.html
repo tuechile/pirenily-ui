@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000000">
+    <title>Pirenily UI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    <link href="css/pirenily.css" rel="stylesheet">
+    <link href="docs.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="loader-container hidden">
+        <img src="assets/loader.gif" alt="Loading...">
+    </div>
+
+    <div class="landing">
+        <nav class="navigator">
+            <a class="nav-header" href="./">Pirenily</a>
+            <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+            <div class="nav-links">
+                <a class="nav-item" href="#tokens">Tokens</a>
+                <a class="nav-item" href="#controls">Controls</a>
+                <a class="nav-item" href="#cards">Cards</a>
+                <a class="nav-item" href="examples/case-study.html">Case study</a>
+            </div>
+        </nav>
+
+        <form class="finder" onsubmit="event.preventDefault(); document.getElementById('finder-echo').textContent = 'You searched: ' + (this.q.value || this.q.placeholder);">
+            <input class="finder-input" name="q" type="text" placeholder="Pirenily" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="go"
+                data-names="Pirenily|Chi Le|Iron Pig|Emily|Chi Bell" aria-label="Search">
+        </form>
+
+        <footer class="home-footer">
+            <div id="finder-echo">Pirenily UI · the components of pirenily.com</div>
+            <div class="contacts">
+                <a href="https://www.instagram.com/pju_irza/" target="_blank" rel="noopener"><img class="contact-logo" src="assets/icons/ig.png" alt="Instagram"></a>
+                <a href="https://www.linkedin.com/in/chi-tue-le-214705320/" target="_blank" rel="noopener"><img class="contact-logo" src="assets/icons/linkedin.png" alt="LinkedIn"></a>
+                <a href="https://github.com/tuechile" target="_blank" rel="noopener"><img class="contact-logo" src="assets/icons/github.webp" alt="GitHub"></a>
+            </div>
+            <a class="scroll-mouse" href="#tokens" aria-label="Scroll down to the components"></a>
+        </footer>
+    </div>
+
+    <div class="side-tabs" data-target="#cards" data-reveal="#cards .project-grid">
+        <button type="button" class="side-tab active" data-tab="code">Code</button>
+        <button type="button" class="side-tab" data-tab="uiux">UI/UX</button>
+    </div>
+
+    <main class="demo">
+        <div class="demo-toc">
+            <a href="#tokens"><span class="tag">Tokens</span></a>
+            <a href="#type"><span class="tag">Type</span></a>
+            <a href="#controls"><span class="tag">Pills &amp; toggles</span></a>
+            <a href="#cards"><span class="tag">Project cards</span></a>
+            <a href="#list"><span class="tag">List thumbnails</span></a>
+            <a href="#gallery"><span class="tag">Gallery &amp; lightbox</span></a>
+            <a href="#previews"><span class="tag">Hover previews</span></a>
+            <a href="#flip"><span class="tag">Flip card</span></a>
+            <a href="#accordion"><span class="tag">Accordion</span></a>
+            <a href="#panels"><span class="tag">Panels</span></a>
+            <a href="#overlays"><span class="tag">Loader</span></a>
+        </div>
+
+        <!-- Tokens -->
+        <section class="demo-section" id="tokens">
+            <div class="demo-head"><span class="cs-kicker cs-num">01</span><h2>Tokens</h2></div>
+            <p class="demo-note">Black page, grey serif text, near-white titles, one teal accent. Every color is a <code>:root</code> token in <code>css/tokens.css</code>.</p>
+            <div class="demo-stage swatches">
+                <div class="swatch"><i style="--c: var(--accent)"></i>--accent</div>
+                <div class="swatch"><i style="--c: var(--highlight)"></i>--highlight</div>
+                <div class="swatch"><i style="--c: var(--title)"></i>--title</div>
+                <div class="swatch"><i style="--c: var(--lead)"></i>--lead</div>
+                <div class="swatch"><i style="--c: var(--text)"></i>--text</div>
+                <div class="swatch"><i style="--c: var(--text-dim)"></i>--text-dim</div>
+                <div class="swatch"><i style="--c: var(--glass-strong)"></i>--glass-strong</div>
+                <div class="swatch"><i style="--c: linear-gradient(135deg, var(--facts-tint), var(--facts-tint-fade))"></i>--facts-tint</div>
+            </div>
+        </section>
+
+        <!-- Type -->
+        <section class="demo-section" id="type">
+            <div class="demo-head"><span class="cs-kicker cs-num">02</span><h2>Type</h2></div>
+            <p class="demo-note">BHN Cinema only for the logo and big page titles. Crimson Text for everything else, often italic.</p>
+            <div class="demo-stage type-specimen">
+                <h1 class="page-title" style="margin: 0 0 var(--s-5)">Graphic Design</h1>
+                <p class="page-note">A line under the page title, before the filters. <a href="#type">With a link.</a></p>
+                <p style="font-size: var(--fs-heading)">Section heading, Crimson Text</p>
+                <p style="font-style: italic; font-size: var(--fs-3); color: var(--text-secondary)">Italic subtitle for labels and captions</p>
+                <p class="cs-kicker">Small uppercase kicker</p>
+                <p style="margin-top: var(--s-4); color: var(--text)">Body copy sits in grey at a 1.8 line height. Links <a class="shimmer" href="#type" style="color: var(--text); text-decoration: none">shimmer teal on hover</a>, and anything clickable <a class="blur-hover" href="#type" style="color: var(--lead)">blurs softly</a> instead of changing color.</p>
+            </div>
+        </section>
+
+        <!-- Controls -->
+        <section class="demo-section" id="controls">
+            <div class="demo-head"><span class="cs-kicker cs-num">03</span><h2>Pills &amp; toggles</h2></div>
+            <p class="demo-note">Tag chips, the segmented view toggle (a frosted pill slides behind the active button), and side tabs. The fixed side tabs slide in from the left edge once you reach the project cards below.</p>
+            <div class="demo-stage">
+                <div class="tag-row"><span class="tag-chip">Python</span><span class="tag-chip">Flask</span><span class="tag-chip">Jinja2</span><span class="tag-chip">Figma</span></div>
+
+                <div class="view-toggle" data-target="#filterDemo" style="margin-top: var(--s-6)">
+                    <button type="button" class="view-btn active" data-view="selected">Selected</button>
+                    <button type="button" class="view-btn" data-view="brand">Brand</button>
+                    <button type="button" class="view-btn" data-view="all">All</button>
+                </div>
+                <div class="demo-filter-list" id="filterDemo">
+                    <div data-views="selected brand">HackHarvard</div>
+                    <div data-views="selected">Merch</div>
+                    <div data-views="brand">Highlander</div>
+                    <div data-views="brand">Recit</div>
+                    <div data-views="">Olympics</div>
+                    <div data-views="selected">Portal</div>
+                </div>
+
+                <div class="side-tabs side-tabs--static" data-target="#sideDemo" style="margin-top: var(--s-6)">
+                    <button type="button" class="side-tab active" data-tab="a">Code</button>
+                    <button type="button" class="side-tab" data-tab="b">UI/UX</button>
+                </div>
+                <p id="sideDemo" class="demo-note" style="margin: var(--s-3) 0 0"><span data-category="a">Showing code projects.</span><span data-category="b">Showing UI/UX projects.</span></p>
+            </div>
+        </section>
+
+        <!-- Project cards -->
+        <section class="demo-section" id="cards">
+            <div class="demo-head"><span class="cs-kicker cs-num">04</span><h2>Project cards</h2></div>
+            <p class="demo-note">Two-up on desktop with subgrid rows so neighbours line up; one column on phones, reordered. Link cards blur on hover; plain ones don't. Use the side tabs on the left to filter.</p>
+            <div class="project-grid">
+                <a class="project-thumb" data-category="code" href="https://github.com/tuechile/ascii-simple-avatar" target="_blank" rel="noopener">
+                    <img class="project-thumb-img project-thumb-img--cover" src="assets/demo/salzburg.jpg" alt="">
+                    <div class="project-thumb-meta">
+                        <div class="project-thumb-namebox">
+                            <div class="project-thumb-title">ASCII Avatar</div>
+                            <div class="project-thumb-tags"><span class="tag-chip">Python</span><span class="tag-chip">HTML</span><span class="tag-chip">Docker</span></div>
+                        </div>
+                        <div class="project-thumb-subrow">
+                            <div class="project-thumb-sub">Inspired by my CS1710 project</div>
+                            <div class="project-thumb-date">May 2026</div>
+                        </div>
+                        <div class="project-thumb-desc">A cute little fashion app that dresses you up as a tiny ASCII avatar.</div>
+                    </div>
+                </a>
+                <div class="project-thumb" data-category="code">
+                    <img class="project-thumb-img project-thumb-img--cover" src="assets/demo/bridge.jpg" alt="">
+                    <div class="project-thumb-meta">
+                        <div class="project-thumb-namebox">
+                            <div class="project-thumb-title">AeroTone</div>
+                            <div class="project-thumb-tags"><span class="tag-chip">Arduino</span><span class="tag-chip">C++</span><span class="tag-chip">Embedded Systems</span><span class="tag-chip">FSR Sensors</span></div>
+                        </div>
+                        <div class="project-thumb-subrow">
+                            <div class="project-thumb-sub">Not a link, so it doesn't blur</div>
+                            <div class="project-thumb-date">Apr–May 2026</div>
+                        </div>
+                        <div class="project-thumb-desc">A gesture-based wearable synth: a glove that maps finger pressure to pitch.</div>
+                    </div>
+                </div>
+                <a class="project-thumb" data-category="code" href="https://github.com/tuechile/backtiming" target="_blank" rel="noopener">
+                    <div class="project-thumb-img project-thumb-placeholder">Coming soon</div>
+                    <div class="project-thumb-meta">
+                        <div class="project-thumb-namebox">
+                            <div class="project-thumb-title">Backtiming</div>
+                            <div class="project-thumb-tags"></div>
+                        </div>
+                        <div class="project-thumb-subrow">
+                            <div class="project-thumb-sub">Placeholder thumbnail</div>
+                            <div class="project-thumb-date">Coming soon</div>
+                        </div>
+                        <div class="project-thumb-desc">Works backwards from each calendar event to maximize grwm time.</div>
+                    </div>
+                </a>
+                <div class="project-thumb" data-category="code">
+                    <div class="project-thumb-img project-thumb-placeholder project-thumb-placeholder--blank"></div>
+                    <div class="project-thumb-meta">
+                        <div class="project-thumb-namebox">
+                            <div class="project-thumb-title">Blank placeholder</div>
+                            <div class="project-thumb-tags"><span class="tag-chip">CSS</span></div>
+                        </div>
+                        <div class="project-thumb-subrow">
+                            <div class="project-thumb-sub">Solid black until the image is ready</div>
+                            <div class="project-thumb-date">Dec 2024</div>
+                        </div>
+                        <div class="project-thumb-desc">The --blank modifier.</div>
+                    </div>
+                </div>
+                <a class="project-thumb" data-category="uiux" href="#cards">
+                    <img class="project-thumb-img project-thumb-img--cover" src="assets/demo/cong.jpg" alt="">
+                    <div class="project-thumb-meta">
+                        <div class="project-thumb-namebox">
+                            <div class="project-thumb-title">T4SG × CommonSpirit Health</div>
+                            <div class="project-thumb-tags"><span class="tag-chip">Figma</span></div>
+                        </div>
+                        <div class="project-thumb-subrow">
+                            <div class="project-thumb-sub">Redesigning patient resource access</div>
+                            <div class="project-thumb-date">Feb – May 2026</div>
+                        </div>
+                        <div class="project-thumb-desc">12-week project improving an internal resource tool.</div>
+                    </div>
+                </a>
+                <a class="project-thumb" data-category="uiux" href="#cards">
+                    <img class="project-thumb-img project-thumb-img--cover" src="assets/demo/pose.jpg" alt="">
+                    <div class="project-thumb-meta">
+                        <div class="project-thumb-namebox">
+                            <div class="project-thumb-title">T4SG × 2ft Prosthetics</div>
+                            <div class="project-thumb-tags"><span class="tag-chip">Figma</span></div>
+                        </div>
+                        <div class="project-thumb-subrow">
+                            <div class="project-thumb-sub">Offline-first inventory system</div>
+                            <div class="project-thumb-date">Sep – Dec 2025</div>
+                        </div>
+                        <div class="project-thumb-desc">Flows for volunteers and prosthetists across time zones.</div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- List thumbnails -->
+        <section class="demo-section" id="list">
+            <div class="demo-head"><span class="cs-kicker cs-num">05</span><h2>List thumbnails</h2></div>
+            <p class="demo-note">The Play page list: picture left, title and blurb right. Only rows with a link blur.</p>
+            <div class="thumbnail-container" style="padding: 0">
+                <div class="thumbnail"><a href="#list">
+                    <img src="assets/demo/beach.jpg" alt="">
+                    <div class="thumbnail-content">
+                        <div class="thumbnail-header">Street photography</div>
+                        <div class="thumbnail-description">A linked row. Hover to blur.</div>
+                    </div>
+                </a></div>
+                <div class="thumbnail">
+                    <img src="assets/demo/blackswan.jpg" alt="">
+                    <div class="thumbnail-content">
+                        <div class="thumbnail-header">Illustration</div>
+                        <div class="thumbnail-description">No link, so it stays crisp.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery -->
+        <section class="demo-section" id="gallery">
+            <div class="demo-head"><span class="cs-kicker cs-num">06</span><h2>Gallery &amp; lightbox</h2></div>
+            <p class="demo-note">Three-column masonry (two on tablets, one on phones). Click a picture to open it; Esc, the ×, or a click outside closes it.</p>
+            <div class="masonry" style="padding: 0">
+                <div class="item"><img class="lightboxable" src="assets/demo/salzburg.jpg" alt="Salzburg"></div>
+                <div class="item"><img class="lightboxable" src="assets/demo/bridge.jpg" alt="Bridge"></div>
+                <div class="item"><img class="lightboxable" src="assets/demo/cong.jpg" alt="Cong"></div>
+                <div class="item"><img class="lightboxable" src="assets/demo/beach.jpg" alt="Beach"></div>
+                <div class="item"><img class="lightboxable" src="assets/demo/pose.jpg" alt="Pose"></div>
+                <div class="item"><img class="lightboxable" src="assets/demo/blackswan.jpg" alt="Black swan"></div>
+            </div>
+        </section>
+
+        <!-- Hover previews -->
+        <section class="demo-section" id="previews">
+            <div class="demo-head"><span class="cs-kicker cs-num">07</span><h2>Hover previews</h2></div>
+            <p class="demo-note">Give any element <code>data-previews="a.jpg|b.jpg"</code>. Hovering (or tabbing onto) it pops one picture up at a random spot, a different one each time. Instant, no fade. Mouse only.</p>
+            <div class="demo-row">
+                <a class="cta-button" href="#previews" style="margin: 0; flex: 1 1 18rem" data-previews="assets/demo/salzburg.jpg|assets/demo/bridge.jpg|assets/demo/cong.jpg">
+                    <span><span class="cs-label">Hover me</span><span class="cta-title">Travel</span></span>
+                </a>
+                <a class="cta-button" href="#previews" style="margin: 0; flex: 1 1 18rem" data-previews="assets/demo/pose.jpg|assets/demo/beach.jpg|assets/demo/blackswan.jpg">
+                    <span><span class="cs-label">Hover me</span><span class="cta-title">Portraits</span></span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Flip card -->
+        <section class="demo-section" id="flip">
+            <div class="demo-head"><span class="cs-kicker cs-num">08</span><h2>Flip card</h2></div>
+            <p class="demo-note">The About headshot. Hover the front for a random picture; click to flip to a feathered grid of small ones, each hoverable.</p>
+            <div class="flip-card" role="button" tabindex="0" aria-pressed="false" aria-label="Flip to see more pictures">
+                <div class="flip-card-front"><img class="feather" src="assets/demo/pose.jpg" alt="Portrait"></div>
+                <div class="flip-card-back">
+                    <img class="flip-thumb" src="assets/demo/salzburg.jpg" alt="">
+                    <img class="flip-thumb" src="assets/demo/bridge.jpg" alt="">
+                    <img class="flip-thumb" src="assets/demo/cong.jpg" alt="">
+                    <img class="flip-thumb" src="assets/demo/beach.jpg" alt="">
+                    <img class="flip-thumb" src="assets/demo/blackswan.jpg" alt="">
+                    <img class="flip-thumb" src="assets/demo/pose.jpg" alt="">
+                    <p class="flip-card-note">Click again to flip back.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Accordion -->
+        <section class="demo-section" id="accordion">
+            <div class="demo-head"><span class="cs-kicker cs-num">09</span><h2>Accordion</h2></div>
+            <p class="demo-note">Receipts that fold away.</p>
+            <div class="accordion">
+                <button type="button" class="acc-btn"><span>What's this made with?</span><span class="chev">⌄</span></button>
+                <div class="acc-panel"><div class="acc-inner">Plain HTML, CSS and a few small vanilla scripts. No frameworks, no build step, no icon libraries.</div></div>
+            </div>
+            <div class="accordion">
+                <button type="button" class="acc-btn"><span>Can I change the accent?</span><span class="chev">⌄</span></button>
+                <div class="acc-panel"><div class="acc-inner">Override <code>--accent</code> and the related <code>--accent-*</code> and <code>--rail-glow*</code> tokens after loading the kit.</div></div>
+            </div>
+        </section>
+
+        <!-- Panels -->
+        <section class="demo-section" id="panels">
+            <div class="demo-head"><span class="cs-kicker cs-num">10</span><h2>Panels</h2></div>
+            <p class="demo-note">From the case-study system: callouts with numbered points, stats, rollout phases, and the call-to-action panel link. See the <a href="examples/case-study.html">full case-study example</a> for the progress rail, hero and pager.</p>
+            <div class="split split-equal">
+                <div class="callout">
+                    <h3 class="cs-label">Before</h3>
+                    <ol class="cs-points"><li>Resources buried three menus deep</li><li>No offline mode</li><li>Search only matched exact titles</li></ol>
+                </div>
+                <div class="callout">
+                    <h3 class="cs-label">After</h3>
+                    <ol class="cs-points"><li>One search bar, fuzzy matching</li><li>Works on a bad connection</li><li>Saved lists per coordinator</li></ol>
+                </div>
+            </div>
+            <div class="cs-block">
+                <h3 class="cs-label">Results</h3>
+                <dl class="cs-stats">
+                    <div><dt>12</dt><dd>weeks, start to handoff</dd></div>
+                    <div><dt>3×</dt><dd>faster to find a resource</dd></div>
+                    <div><dt>40+</dt><dd>screens in Figma</dd></div>
+                </dl>
+            </div>
+            <div class="rollout-grid">
+                <div class="rollout-card"><p class="rollout-phase">Phase 1</p><p><strong>Pilot</strong><br>One clinic, two weeks.</p></div>
+                <div class="rollout-card"><p class="rollout-phase">Phase 2</p><p><strong>Region</strong><br>Feedback loop with coordinators.</p></div>
+                <div class="rollout-card"><p class="rollout-phase">Phase 3</p><p><strong>Everywhere</strong><br>Default for every site.</p></div>
+            </div>
+            <a class="cta-button" href="https://github.com/tuechile/pirenily" target="_blank" rel="noopener">
+                <span><span class="cs-label">github.com</span><span class="cta-title">See the site's source</span></span>
+            </a>
+        </section>
+
+        <!-- Overlays -->
+        <section class="demo-section" id="overlays">
+            <div class="demo-head"><span class="cs-kicker cs-num">11</span><h2>Loader</h2></div>
+            <p class="demo-note">The loader GIF shows between pages only when a page is slow (over 200 ms), and always on the way home. Every click on something interactive also makes a tiny synthesized fire crackle (<code>js/fire.js</code>).</p>
+            <button type="button" class="view-btn" style="border: 1px solid var(--hairline-strong)" onclick="var l = document.querySelector('.loader-container'); l.classList.remove('hidden'); setTimeout(function () { l.classList.add('hidden'); }, 1200);">Show the loader</button>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        Pirenily UI. Components from <a href="https://pirenily.com" target="_blank" rel="noopener">pirenily.com</a>
+        <span>Chi (Tue) Le | pirenily</span>
+    </footer>
+
+    <script src="js/nav.js"></script>
+    <script src="js/finder.js"></script>
+    <script src="js/side-tabs.js"></script>
+    <script src="js/view-toggle.js"></script>
+    <script src="js/lightbox.js"></script>
+    <script src="js/popups.js"></script>
+    <script src="js/flip-card.js"></script>
+    <script src="js/accordion.js"></script>
+    <script src="js/loader.js"></script>
+    <script src="js/fire.js"></script>
+</body>
+
+</html>

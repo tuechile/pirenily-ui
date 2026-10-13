@@ -1,0 +1,154 @@
+/* =========================================================
+   Pill controls: tag chips, side tabs, and the segmented
+   view toggle with a frosted pill that slides behind the
+   active button.
+   JS: js/side-tabs.js, js/view-toggle.js
+   ========================================================= */
+.tag,
+.tag-chip,
+.view-btn,
+.side-tab {
+    font-family: var(--font-serif);
+    font-style: italic;
+}
+
+.view-btn,
+.side-tab {
+    transition: transform var(--dur-1) var(--ease-out), filter var(--dur-1) var(--ease-out),
+                color var(--dur-1) var(--ease-out), border-color var(--dur-1) var(--ease-out);
+}
+
+.view-btn:active,
+.side-tab:active {
+    transform: var(--press);
+}
+
+/* ----- Tag chip ----- */
+.tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-2);
+}
+
+.tag,
+.tag-chip {
+    padding: 0.2rem 0.65rem;
+    font-size: 0.75rem;
+    line-height: 1.4;
+    color: var(--pill-text);
+    background: var(--glass);
+    border: 1px solid var(--hairline-strong);
+    border-radius: var(--r-pill);
+    white-space: nowrap;
+    user-select: none;
+}
+
+/* ----- Side tabs: capsules attached to the left edge ----- */
+.side-tabs {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    z-index: 40;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    transform: translateY(-50%) translateX(-110%);
+    visibility: hidden;
+    pointer-events: none;
+    transition: transform var(--dur-3) var(--ease-out), visibility 0s linear var(--dur-3);
+}
+
+/* Slides in from the edge; no opacity fade */
+.side-tabs.show {
+    transform: translateY(-50%) translateX(0);
+    visibility: visible;
+    pointer-events: auto;
+    transition: transform var(--dur-3) var(--ease-out), visibility 0s;
+}
+
+/* Inline variant for demos or a static sidebar */
+.side-tabs--static {
+    position: static;
+    align-items: flex-start;
+    transform: none;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.side-tab {
+    padding: 0.55rem 1.2rem 0.55rem 1rem;
+    font-size: 0.95rem;
+    text-align: left;
+    color: var(--pill-text);
+    background: var(--glass);
+    border: 1px solid var(--hairline-strong);
+    border-left: none;
+    border-radius: 0 var(--r-pill) var(--r-pill) 0;
+    transform-origin: left center;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    cursor: pointer;
+}
+
+.side-tab.active {
+    color: var(--pill-text-on);
+    background: var(--glass-strong);
+}
+
+.side-tab:hover,
+.side-tab:focus-visible {
+    color: var(--accent);
+}
+
+/* ----- View toggle ----- */
+.view-toggle {
+    position: relative;
+    display: flex;
+    width: fit-content;
+    margin: 0 auto;
+    padding: var(--s-1);
+    font-family: var(--font-serif);
+    font-style: italic;
+    background: var(--glass);
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-pill);
+}
+
+.view-btn {
+    position: relative;
+    z-index: 1;
+    padding: var(--s-1) var(--s-4);
+    font: inherit;
+    font-size: 1.05rem;
+    color: var(--text);
+    background: none;
+    border: none;
+    border-radius: var(--r-pill);
+    cursor: pointer;
+}
+
+.view-btn.active {
+    color: var(--title);
+}
+
+.view-btn:hover,
+.view-btn:focus-visible {
+    color: var(--accent);
+}
+
+/* No-JS fallback: the active button carries its own pill */
+.view-toggle:not(.has-pill) .view-btn.active {
+    background: var(--glass-strong);
+}
+
+.view-pill {
+    position: absolute;
+    top: var(--s-1);
+    bottom: var(--s-1);
+    left: 0;
+    background: var(--glass-strong);
+    border: 1px solid var(--hairline-strong);
+    border-radius: var(--r-pill);
+    pointer-events: none;
+    transition: transform var(--dur-2) var(--ease-out), width var(--dur-2) var(--ease-out);
+}

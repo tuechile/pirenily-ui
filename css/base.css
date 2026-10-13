@@ -1,0 +1,73 @@
+/* =========================================================
+   Base: black page, grey serif text, teal selection, quiet focus
+   ========================================================= */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text-dim);
+    font-family: var(--font-serif);
+    line-height: 1.5;
+}
+
+img {
+    max-width: 100%;
+}
+
+::placeholder {
+    color: var(--highlight);
+    opacity: 1;
+}
+
+::selection {
+    color: var(--accent);
+    text-shadow: 0 0 5px var(--highlight);
+    background-color: transparent;
+}
+
+/* Mouse clicks stay outline-free; keyboard users still see where they are */
+:focus {
+    outline: none;
+}
+
+:focus-visible {
+    outline: 1px solid var(--accent);
+    outline-offset: 3px;
+}
+
+/* Hover as a soft blur instead of a color change: the house motif */
+.blur-hover {
+    transition: filter var(--dur-1) var(--ease-out);
+}
+
+.blur-hover:hover,
+.blur-hover:focus-visible {
+    filter: var(--hover-blur);
+}
+
+/* Unframed image that dissolves into the black */
+.feather {
+    -webkit-mask-image: var(--feather-mask);
+    -webkit-mask-composite: source-in;
+    mask-image: var(--feather-mask);
+    mask-composite: intersect;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}

@@ -1,0 +1,41 @@
+/* =========================================================
+   Finder: the giant BHN Cinema search field from the landing
+   page. The placeholder cycles through names (js/finder.js);
+   the blinking caret is the only focus cue.
+   ========================================================= */
+.finder {
+    display: flex;
+    width: 100%;
+}
+
+.finder-input {
+    width: 95%;
+    min-height: 10rem;
+    margin: 0 auto;
+    padding: var(--s-4);
+    font-family: var(--font-display);
+    font-size: 7rem;
+    color: var(--highlight);
+    text-align: center;
+    background: transparent;
+    border: none;
+    filter: grayscale(50%);
+}
+
+.finder-input:focus-visible {
+    outline: none;
+}
+
+@media screen and (max-width: 880px) {
+    .finder-input {
+        font-size: 5rem;
+    }
+}
+
+@media screen and (max-width: 666px) {
+    .finder-input {
+        width: 98%;
+        padding: 0;
+        font-size: 3rem;
+    }
+}

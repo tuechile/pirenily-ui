@@ -1,0 +1,122 @@
+/* =========================================================
+   Footers, contact icons, and the scroll-mouse cue
+   ========================================================= */
+.site-footer {
+    width: min(40rem, 100%);
+    margin: 4rem auto 0;
+    padding: var(--s-5) var(--s-4) calc(2.5rem + env(safe-area-inset-bottom));
+    border-top: 1px solid var(--hairline);
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: var(--fs-2);
+    text-align: center;
+    color: var(--text);
+}
+
+.site-footer > span {
+    display: block;
+    margin-top: var(--s-2);
+}
+
+.site-footer a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: filter var(--dur-1) var(--ease-out);
+}
+
+.site-footer a:hover {
+    filter: var(--hover-blur);
+}
+
+@media screen and (max-width: 666px) {
+    .site-footer {
+        font-size: var(--fs-1);
+    }
+}
+
+/* Landing footer: meta line, icons, mouse, stacked in the middle */
+.home-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    padding-bottom: calc(var(--s-5) + env(safe-area-inset-bottom));
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: var(--fs-2);
+    color: var(--text);
+}
+
+/* Grey social icons that blur instead of lighting up */
+.contacts {
+    display: flex;
+    align-items: center;
+    gap: var(--s-1);
+}
+
+.contact-logo {
+    height: 1.5rem;
+    width: auto;
+    padding-inline: var(--s-2);
+    opacity: 0.5;
+    filter: grayscale(100%);
+    transition: opacity var(--dur-2) var(--ease-out), filter var(--dur-2) var(--ease-out);
+}
+
+.contact-logo:hover,
+a:focus-visible .contact-logo {
+    filter: var(--hover-blur) grayscale(100%);
+    opacity: 0.8;
+}
+
+/* Scroll cue: a mouse outline whose wheel slides down, then snaps back (no fade) */
+.scroll-mouse {
+    position: relative;
+    display: block;
+    width: 22px;
+    height: 34px;
+    margin-top: 0.6rem;
+    border: 1.5px solid var(--mouse-line);
+    border-radius: 12px;
+    transition: filter var(--dur-1) var(--ease-out);
+}
+
+.scroll-mouse:hover,
+.scroll-mouse:focus-visible {
+    filter: var(--hover-blur);
+}
+
+.scroll-mouse::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 6px;
+    width: 3px;
+    height: 7px;
+    margin-left: -1.5px;
+    border-radius: 2px;
+    background: var(--accent);
+    animation: mouseWheel 1.8s ease-in-out infinite;
+}
+
+@keyframes mouseWheel {
+    0% { transform: translateY(0); }
+    60%, 80% { transform: translateY(10px); }
+    80.01%, 100% { transform: translateY(0); }
+}
+
+/* Shimmering teal-white link text, used sparingly (e.g. "Commission me") */
+.shimmer:hover,
+.shimmer:focus-visible {
+    background: linear-gradient(45deg, var(--accent), var(--highlight), var(--accent));
+    background-size: 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 2s infinite linear;
+}
+
+@keyframes shimmer {
+    0% { background-position: 0%; }
+    100% { background-position: 100%; }
+}
