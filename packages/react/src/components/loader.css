@@ -1,0 +1,27 @@
+.pui-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--scrim);
+}
+
+.pui-loader img {
+    width: 10rem;
+    height: auto;
+}
+
+.pui-loader-ring {
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px solid var(--hairline-strong);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: pui-spin 900ms linear infinite;
+}
+
+@keyframes pui-spin {
+    to { transform: rotate(360deg); }
+}

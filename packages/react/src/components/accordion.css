@@ -1,0 +1,51 @@
+.pui-accordion {
+    width: 100%;
+    overflow: hidden;
+    background: var(--panel-dark);
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-lg);
+}
+
+.pui-accordion + .pui-accordion {
+    margin-top: var(--s-3);
+}
+
+.pui-acc-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--s-4);
+    width: 100%;
+    padding: 0.9rem var(--s-4);
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 0.95rem;
+    text-align: left;
+    color: var(--title);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.pui-acc-chev {
+    opacity: 0.7;
+    transition: transform var(--dur-1) var(--ease-out);
+}
+
+.pui-acc-btn[aria-expanded="true"] .pui-acc-chev {
+    transform: rotate(180deg);
+}
+
+.pui-acc-panel {
+    overflow: hidden;
+    border-top: 1px solid var(--hairline);
+    transition: max-height var(--dur-3) var(--ease-out);
+}
+
+.pui-acc-inner {
+    padding: var(--s-4);
+    font-family: var(--font-serif);
+    font-size: 0.9rem;
+    line-height: var(--lh);
+    color: var(--text);
+}

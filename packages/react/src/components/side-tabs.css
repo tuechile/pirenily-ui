@@ -1,0 +1,56 @@
+.pui-side-tabs {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+}
+
+.pui-side-tabs--fixed {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    z-index: 40;
+    transform: translateY(-50%) translateX(-110%);
+    visibility: hidden;
+    pointer-events: none;
+    transition: transform var(--dur-3) var(--ease-out), visibility 0s linear var(--dur-3);
+}
+
+.pui-side-tabs--fixed.is-shown {
+    transform: translateY(-50%) translateX(0);
+    visibility: visible;
+    pointer-events: auto;
+    transition: transform var(--dur-3) var(--ease-out), visibility 0s;
+}
+
+.pui-side-tab {
+    padding: 0.55rem 1.2rem 0.55rem 1rem;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 0.95rem;
+    text-align: left;
+    color: var(--pill-text);
+    background: var(--glass);
+    border: 1px solid var(--hairline-strong);
+    border-left: none;
+    border-radius: 0 var(--r-pill) var(--r-pill) 0;
+    transform-origin: left center;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    cursor: pointer;
+    transition: transform var(--dur-1) var(--ease-out), color var(--dur-1) var(--ease-out);
+}
+
+.pui-side-tab[aria-pressed="true"] {
+    color: var(--pill-text-on);
+    background: var(--glass-strong);
+}
+
+.pui-side-tab:hover,
+.pui-side-tab:focus-visible {
+    color: var(--accent);
+}
+
+.pui-side-tab:active {
+    transform: var(--press);
+}

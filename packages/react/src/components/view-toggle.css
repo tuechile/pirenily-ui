@@ -1,0 +1,50 @@
+.pui-view-toggle {
+    position: relative;
+    display: flex;
+    width: fit-content;
+    padding: var(--s-1);
+    font-family: var(--font-serif);
+    font-style: italic;
+    background: var(--glass);
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-pill);
+}
+
+.pui-view-btn {
+    position: relative;
+    z-index: 1;
+    padding: var(--s-1) var(--s-4);
+    font: inherit;
+    font-size: 1.05rem;
+    color: var(--text);
+    background: none;
+    border: none;
+    border-radius: var(--r-pill);
+    cursor: pointer;
+    transition: transform var(--dur-1) var(--ease-out), color var(--dur-1) var(--ease-out);
+}
+
+.pui-view-btn[aria-pressed="true"] {
+    color: var(--title);
+}
+
+.pui-view-btn:hover,
+.pui-view-btn:focus-visible {
+    color: var(--accent);
+}
+
+.pui-view-btn:active {
+    transform: var(--press);
+}
+
+.pui-view-pill {
+    position: absolute;
+    top: var(--s-1);
+    bottom: var(--s-1);
+    left: 0;
+    background: var(--glass-strong);
+    border: 1px solid var(--hairline-strong);
+    border-radius: var(--r-pill);
+    pointer-events: none;
+    transition: transform var(--dur-2) var(--ease-out), width var(--dur-2) var(--ease-out);
+}

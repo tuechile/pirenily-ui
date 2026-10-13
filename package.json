@@ -1,0 +1,21 @@
+{
+  "name": "pirenily-ui-monorepo",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev -w @pirenily-ui/docs",
+    "build": "npm run registry && npm run build -w @pirenily-ui/react && npm run build -w @pirenily-ui/docs",
+    "registry": "node scripts/build-registry.mjs",
+    "typecheck": "tsc -p packages/react --noEmit && tsc -p apps/docs --noEmit"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "bin": {
+    "pirenily-ui": "packages/cli/bin.mjs"
+  }
+}

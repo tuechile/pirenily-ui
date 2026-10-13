@@ -1,0 +1,74 @@
+.pui-flip {
+    position: relative;
+    width: min(300px, 100%);
+    perspective: 1200px;
+    cursor: pointer;
+}
+
+.pui-flip-front,
+.pui-flip-back {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transition: transform 700ms var(--ease-out);
+}
+
+.pui-flip-front img {
+    display: block;
+    width: 100%;
+    opacity: 0.8;
+    filter: grayscale(100%);
+    -webkit-mask-image: var(--feather-mask);
+    -webkit-mask-composite: source-in;
+    mask-image: var(--feather-mask);
+    mask-composite: intersect;
+}
+
+.pui-flip-back {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-content: center;
+    gap: 6px;
+    padding: var(--feather);
+    background: var(--glass);
+    transform: rotateY(180deg);
+    pointer-events: none;
+    -webkit-mask-image: var(--feather-mask);
+    -webkit-mask-composite: source-in;
+    mask-image: var(--feather-mask);
+    mask-composite: intersect;
+}
+
+.pui-flip.is-flipped .pui-flip-front {
+    transform: rotateY(-180deg);
+    pointer-events: none;
+}
+
+.pui-flip.is-flipped .pui-flip-back {
+    transform: rotateY(0deg);
+    pointer-events: auto;
+}
+
+.pui-flip-thumb {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    opacity: 0.8;
+    filter: grayscale(100%);
+}
+
+.pui-flip-thumb:hover {
+    filter: grayscale(100%) var(--hover-blur);
+}
+
+.pui-flip-note {
+    grid-column: 1 / -1;
+    margin: 8px 0 0;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: var(--fs-1);
+    line-height: 1.4;
+    text-align: center;
+    color: var(--text);
+}

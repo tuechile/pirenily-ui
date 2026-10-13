@@ -1,0 +1,44 @@
+.pui-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--scrim);
+}
+
+.pui-lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.pui-lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    line-height: 1;
+    color: var(--highlight);
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: filter var(--dur-1) var(--ease-out);
+}
+
+.pui-lightbox-close:hover {
+    filter: var(--hover-blur);
+}
+
+.pui-lightboxable {
+    display: block;
+    width: 100%;
+    cursor: zoom-in;
+    filter: grayscale(18%);
+    transition: filter var(--dur-1) var(--ease-out), transform var(--dur-1) var(--ease-out);
+}
+
+.pui-lightboxable:hover {
+    filter: grayscale(0%);
+    transform: translateY(-2px);
+}

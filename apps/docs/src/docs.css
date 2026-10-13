@@ -1,0 +1,295 @@
+/* Docs-site layout only; the components carry their own styles */
+.d-landing {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: 100svh;
+}
+
+.d-landing .pui-finder {
+    flex: 1;
+}
+
+.d-landing-foot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--s-3);
+    padding: 0 var(--s-4) calc(var(--s-6) + env(safe-area-inset-bottom));
+    font-style: italic;
+    text-align: center;
+    color: var(--text);
+}
+
+.d-landing-foot p {
+    margin: 0;
+}
+
+.d-landing-foot a,
+.d-note a {
+    color: var(--lead);
+    text-decoration: none;
+    border-bottom: 1px solid var(--hairline);
+}
+
+.d-main {
+    width: min(960px, calc(100% - 32px));
+    margin: 0 auto;
+}
+
+/* Page-level demos (case study) get the full width */
+.d-stage--bare .pui-cs {
+    padding-inline: 0;
+}
+
+.d-start {
+    padding-top: 6rem;
+    scroll-margin-top: 4rem;
+}
+
+.d-start h2,
+.d-demo-head h2 {
+    margin: var(--s-2) 0 var(--s-3);
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: var(--fs-heading);
+    line-height: 1.2;
+    color: var(--text-primary);
+}
+
+.d-note {
+    max-width: 64ch;
+    margin: 0 0 var(--s-5);
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: var(--lh);
+    color: var(--text);
+}
+
+.d-note code {
+    font-style: normal;
+    color: var(--lead);
+}
+
+.d-center-text {
+    margin-inline: auto;
+    text-align: center;
+}
+
+.d-center {
+    margin-inline: auto;
+}
+
+/* ----- Commands and code ----- */
+.d-cmd {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--s-3);
+    max-width: 36rem;
+    margin: 0 0 var(--s-2);
+    padding: var(--s-2) var(--s-2) var(--s-2) var(--s-4);
+    background: var(--glass);
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-pill);
+}
+
+.d-cmd code,
+.d-code,
+.d-usage pre {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 0.85rem;
+    color: var(--lead);
+}
+
+.d-cmd code {
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.d-cmd-prompt {
+    color: var(--accent);
+}
+
+.d-cmd-copy {
+    flex-shrink: 0;
+    padding: 0.2rem 0.8rem;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 0.85rem;
+    color: var(--pill-text);
+    background: none;
+    border: 1px solid var(--hairline-strong);
+    border-radius: var(--r-pill);
+    cursor: pointer;
+    transition: color var(--dur-1) var(--ease-out);
+}
+
+.d-cmd-copy:hover {
+    color: var(--accent);
+}
+
+.d-code,
+.d-usage pre {
+    margin: var(--s-4) 0 0;
+    padding: var(--s-4) var(--s-5);
+    overflow-x: auto;
+    line-height: 1.6;
+    background: var(--glass);
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-sm);
+}
+
+/* ----- View switch ----- */
+.d-switch {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--s-3);
+    margin-top: 6rem;
+    padding: var(--s-5) 0 var(--s-2);
+    background-image: linear-gradient(var(--bg) 70%, transparent);
+    scroll-margin-top: 0;
+}
+
+.d-switch .d-note {
+    margin-bottom: 0;
+    font-size: 0.95rem;
+}
+
+/* ----- One demo ----- */
+.d-demo {
+    padding-top: 5rem;
+    scroll-margin-top: 7rem;
+}
+
+.d-demo-head h2 {
+    margin-top: var(--s-1);
+}
+
+.d-stage {
+    position: relative;
+    margin-top: var(--s-5);
+    padding: var(--s-6);
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-lg);
+}
+
+.d-stage--bare {
+    padding: 0;
+    border: none;
+}
+
+.d-usage {
+    margin-top: var(--s-3);
+}
+
+.d-usage summary {
+    width: fit-content;
+    font-style: italic;
+    color: var(--text);
+    cursor: pointer;
+    transition: filter var(--dur-1) var(--ease-out);
+}
+
+.d-usage summary:hover {
+    filter: var(--hover-blur);
+}
+
+/* ----- Demo helpers ----- */
+.d-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--s-4);
+}
+
+.d-two {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--s-4);
+}
+
+.d-trio {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--s-3);
+}
+
+.d-trio img {
+    aspect-ratio: 1;
+    object-fit: cover;
+}
+
+.d-gap {
+    margin-top: var(--s-6);
+}
+
+.d-tiles {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--s-3);
+    margin-top: var(--s-5);
+}
+
+.d-tiles > div {
+    padding: var(--s-4);
+    font-style: italic;
+    color: var(--lead);
+    background: var(--glass);
+    border: 1px solid var(--hairline);
+}
+
+.d-nav-frame {
+    overflow: hidden;
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-lg);
+}
+
+.d-nav-frame .pui-nav {
+    position: relative;
+}
+
+.d-contacts {
+    margin-top: var(--s-4);
+}
+
+.d-hover-tile {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: var(--s-5);
+    font-size: 1.3rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    background: var(--glass);
+    border: 1px solid var(--hairline);
+    transition: filter var(--dur-1) var(--ease-out);
+}
+
+.d-hover-tile span {
+    font-size: var(--fs-kicker);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--text-tertiary);
+}
+
+.d-hover-tile:hover {
+    filter: var(--hover-blur);
+}
+
+.d-plain-link {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--text);
+    text-decoration: none;
+}
+
+@media screen and (max-width: 666px) {
+    .d-stage { padding: var(--s-4); }
+    .d-two, .d-tiles { grid-template-columns: 1fr; }
+    .d-trio { grid-template-columns: 1fr 1fr; }
+}

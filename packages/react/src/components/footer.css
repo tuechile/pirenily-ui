@@ -1,0 +1,60 @@
+.pui-footer {
+    width: min(40rem, 100%);
+    margin: 4rem auto 0;
+    padding: var(--s-5) var(--s-4) calc(2.5rem + env(safe-area-inset-bottom));
+    border-top: 1px solid var(--hairline);
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: var(--fs-2);
+    line-height: 1.5;
+    text-align: center;
+    color: var(--text);
+}
+
+.pui-footer-meta {
+    display: block;
+    margin-top: var(--s-2);
+}
+
+.pui-footer a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: filter var(--dur-1) var(--ease-out);
+}
+
+.pui-footer a:hover {
+    filter: var(--hover-blur);
+}
+
+@media screen and (max-width: 666px) {
+    .pui-footer { font-size: var(--fs-1); }
+}
+
+.pui-contacts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--s-1);
+}
+
+.pui-contact-icon {
+    display: block;
+    height: 1.5rem;
+    width: auto;
+    padding-inline: var(--s-2);
+    color: var(--highlight);
+    opacity: 0.5;
+    filter: grayscale(100%);
+    transition: opacity var(--dur-2) var(--ease-out), filter var(--dur-2) var(--ease-out);
+}
+
+.pui-contact-icon svg {
+    height: 100%;
+    width: auto;
+}
+
+.pui-contact-icon:hover,
+a:focus-visible .pui-contact-icon {
+    opacity: 0.8;
+    filter: var(--hover-blur) grayscale(100%);
+}

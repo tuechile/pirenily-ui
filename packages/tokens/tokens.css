@@ -1,0 +1,117 @@
+/* =========================================================
+   Pirenily tokens
+   The only place colors live. Every component reads from here;
+   add a token rather than hardcoding a hex or rgba.
+   ========================================================= */
+@font-face {
+    font-family: "BHN Cinema";
+    src: url("./fonts/BHN_CINEMA.TTF") format("truetype");
+    font-display: swap;
+}
+
+:root {
+    color-scheme: dark;
+
+    /* ----- Color ----- */
+    --bg: #000;
+    --accent: #1ca591;
+    --accent-line: rgba(28, 165, 145, 0.55);
+    --accent-wash: rgba(28, 165, 145, 0.06);
+    --accent-glow: rgba(28, 165, 145, 0.35);
+    --highlight: #fff;
+
+    --title: #eee;
+    --text-primary: #eaeaea;
+    --lead: #bbb;
+    --text-secondary: #9a9a9a;
+    --text: #888;
+    --text-tertiary: #7a7a7a;
+    --text-dim: #555;
+
+    /* Frosted pills and panels */
+    --glass: rgba(255, 255, 255, 0.03);
+    --glass-2: rgba(255, 255, 255, 0.04);
+    --glass-3: rgba(255, 255, 255, 0.05);
+    --glass-strong: rgba(255, 255, 255, 0.08);
+    --hairline: rgba(255, 255, 255, 0.08);
+    --hairline-strong: rgba(255, 255, 255, 0.22);
+    --hairline-hover: rgba(255, 255, 255, 0.6);
+    --dashed: rgba(255, 255, 255, 0.2);
+    --pill-text: rgba(220, 220, 220, 0.75);
+    --pill-text-on: rgba(255, 255, 255, 0.95);
+    --mouse-line: rgba(255, 255, 255, 0.45);
+
+    /* Project card */
+    --card-border: rgba(180, 180, 180, 0.35);
+    --card-bg: rgba(0, 0, 0, 0.25);
+    --card-title: rgba(240, 240, 240, 0.95);
+    --card-date: rgba(200, 200, 200, 0.55);
+    --card-desc: rgba(200, 200, 200, 0.5);
+    --card-placeholder: rgba(220, 220, 220, 0.55);
+    --card-placeholder-line: rgba(200, 200, 200, 0.35);
+
+    /* Overlays */
+    --scrim: rgba(0, 0, 0, 0.82);
+    --scrim-soft: rgba(0, 0, 0, 0.2);
+    --panel-dark: rgba(0, 0, 0, 0.12);
+    --shadow-ink: rgba(0, 0, 0, 0.55);
+
+    /* Case-study facts panel and progress rail */
+    --facts-tint: rgba(110, 145, 200, 0.18);
+    --facts-tint-fade: rgba(110, 145, 200, 0.02);
+    --rail-track: rgba(255, 255, 255, 0.2);
+    --rail-ring: rgba(255, 255, 255, 0.4);
+    --rail-hole: #000;
+    --rail-core: rgba(255, 255, 255, 0.9);
+    --rail-glow: rgba(28, 165, 145, 0.75);
+    --rail-glow-soft: rgba(28, 165, 145, 0.3);
+
+    /* ----- Type ----- */
+    --font-display: "BHN Cinema", "Crimson Text", serif;
+    --font-serif: "Crimson Text", serif;
+    --fs-0: 0.5rem;
+    --fs-1: 0.8rem;    /* small */
+    --fs-2: 1rem;      /* body */
+    --fs-3: 1.5rem;    /* subtitle */
+    --fs-4: 2rem;      /* section title */
+    --fs-5: 2.2rem;    /* hero title */
+    --fs-display: clamp(2.2rem, 4.6vw, 3.4rem);
+    --fs-heading: clamp(1.6rem, 3vw, 2.3rem);
+    --fs-kicker: 0.7rem;
+    --lh: 1.8;
+
+    /* ----- Space ----- */
+    --s-1: 0.25rem;
+    --s-2: 0.5rem;
+    --s-3: 0.75rem;
+    --s-4: 1rem;
+    --s-5: 1.5rem;
+    --s-6: 2rem;
+    --s-7: 3rem;
+
+    /* ----- Shape ----- */
+    --r-sm: 10px;
+    --r-lg: 20px;
+    --r-pill: 999px;
+
+    /* Soft edges for unframed images: the picture dissolves into the black */
+    --feather: 28px;
+    --feather-mask:
+        linear-gradient(to right, transparent, #000 var(--feather), #000 calc(100% - var(--feather)), transparent),
+        linear-gradient(to bottom, transparent, #000 var(--feather), #000 calc(100% - var(--feather)), transparent);
+
+    /* ----- Motion: one fast-out curve, three durations, no bounce ----- */
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-wipe: cubic-bezier(0.7, 0, 0.2, 1);
+    --dur-1: 150ms;
+    --dur-2: 250ms;
+    --dur-3: 450ms;
+    --dur-glow: 600ms;
+    --press: scale(0.97);
+    --hover-blur: blur(1px);
+
+    /* ----- Layout ----- */
+    --rail-w: 11rem;
+    --bp-tablet: 880px;  /* reference only; media queries can't read vars */
+    --bp-phone: 666px;
+}

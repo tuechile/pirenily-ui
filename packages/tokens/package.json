@@ -1,0 +1,17 @@
+{
+  "name": "@pirenily-ui/tokens",
+  "version": "0.1.0",
+  "description": "Design tokens for Pirenily UI: black, grey serif, one teal accent",
+  "license": "UNLICENSED",
+  "type": "module",
+  "files": ["tokens.css", "base.css", "index.css", "fonts"],
+  "exports": {
+    ".": "./index.css",
+    "./tokens.css": "./tokens.css",
+    "./base.css": "./base.css",
+    "./fonts/*": "./fonts/*"
+  },
+  "style": "./index.css",
+  "sideEffects": ["*.css"],
+  "repository": { "type": "git", "url": "https://github.com/tuechile/pirenily-ui", "directory": "packages/tokens" }
+}

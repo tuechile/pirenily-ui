@@ -1,0 +1,87 @@
+.pui-callout {
+    display: flex;
+    flex-direction: column;
+    padding: var(--s-5) var(--s-6);
+    text-align: left;
+    background: var(--glass);
+    border: 1px solid var(--hairline);
+}
+
+.pui-callout-label,
+.pui-callout .pui-callout-label {
+    margin: 0 0 var(--s-4);
+    font-family: var(--font-serif);
+    font-size: var(--fs-kicker);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--text-tertiary);
+}
+
+.pui-callout-body {
+    font-family: var(--font-serif);
+    font-size: var(--fs-2);
+    line-height: var(--lh);
+    color: var(--text-secondary);
+}
+
+.pui-points {
+    display: grid;
+    gap: var(--s-3);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: point;
+}
+
+.pui-points > li,
+.pui-callout .pui-points > li {
+    display: grid;
+    max-width: none;
+    margin: 0;
+    grid-template-columns: 2.25rem 1fr;
+    font-family: var(--font-serif);
+    font-size: var(--fs-2);
+    line-height: 1.7;
+    color: var(--text-secondary);
+    counter-increment: point;
+}
+
+.pui-points > li::before {
+    content: counter(point, decimal-leading-zero);
+    padding-top: 0.3rem;
+    font-size: var(--fs-kicker);
+    letter-spacing: 0.12em;
+    color: var(--accent);
+}
+
+.pui-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr));
+    gap: var(--s-5);
+    margin: 0;
+    font-family: var(--font-serif);
+}
+
+.pui-stats div {
+    padding-top: var(--s-4);
+    border-top: 1px solid var(--hairline);
+}
+
+.pui-stats dt {
+    font-size: clamp(2.2rem, 4vw, 3rem);
+    line-height: 1;
+    color: var(--text-primary);
+}
+
+.pui-stats dd {
+    margin: var(--s-3) 0 0;
+    font-size: 0.95rem;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--text-tertiary);
+}
+
+@media screen and (max-width: 666px) {
+    .pui-callout { padding: var(--s-4); }
+}

@@ -1,0 +1,33 @@
+.pui-scroll-mouse {
+    position: relative;
+    display: block;
+    width: 22px;
+    height: 34px;
+    border: 1.5px solid var(--mouse-line);
+    border-radius: 12px;
+    transition: filter var(--dur-1) var(--ease-out);
+}
+
+.pui-scroll-mouse:hover,
+.pui-scroll-mouse:focus-visible {
+    filter: var(--hover-blur);
+}
+
+.pui-scroll-mouse::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 6px;
+    width: 3px;
+    height: 7px;
+    margin-left: -1.5px;
+    border-radius: 2px;
+    background: var(--accent);
+    animation: pui-mouse-wheel 1.8s ease-in-out infinite;
+}
+
+@keyframes pui-mouse-wheel {
+    0% { transform: translateY(0); }
+    60%, 80% { transform: translateY(10px); }
+    80.01%, 100% { transform: translateY(0); }
+}

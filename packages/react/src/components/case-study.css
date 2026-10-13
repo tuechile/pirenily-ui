@@ -1,0 +1,448 @@
+.pui-cs {
+    display: grid;
+    grid-template-columns: var(--rail-w) minmax(0, 1fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    max-width: 75rem;
+    margin: 0 auto;
+    padding: var(--s-7) clamp(1rem, 4vw, 3rem) 0;
+    font-family: var(--font-serif);
+}
+
+.pui-cs-main {
+    min-width: 0;
+    max-width: 52rem;
+    counter-reset: pui-section pui-fig;
+}
+
+.pui-cs-kicker {
+    display: block;
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: var(--fs-kicker);
+    font-weight: 400;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--text-tertiary);
+}
+
+/* ----- Rail ----- */
+.pui-cs-rail {
+    position: sticky;
+    top: var(--rail-top, 8rem);
+    align-self: start;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - var(--rail-top, 8rem) - var(--s-6));
+}
+
+.pui-cs-back {
+    display: inline-block;
+    margin-bottom: var(--s-6);
+    font-size: var(--fs-1);
+    font-style: italic;
+    color: var(--text-tertiary);
+    text-decoration: none;
+}
+
+.pui-cs-rail-title {
+    margin: var(--s-1) 0 var(--s-6);
+    font-size: 1.05rem;
+    line-height: 1.35;
+    color: var(--text-primary);
+}
+
+.pui-cs-index {
+    --node: 14px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 0 1 calc(var(--n, 6) * 4.5rem);
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.pui-cs-index::before,
+.pui-cs-index .pui-cs-fill {
+    content: "";
+    position: absolute;
+    left: calc(var(--node) / 2 - 1px);
+    top: calc(var(--node) / 2);
+    width: 2px;
+}
+
+.pui-cs-index::before {
+    bottom: calc(var(--node) / 2);
+    background: var(--rail-track);
+}
+
+.pui-cs-index .pui-cs-fill {
+    background: var(--highlight);
+}
+
+.pui-cs-index li:not(.pui-cs-fill) {
+    position: relative;
+    height: var(--node);
+}
+
+.pui-cs-index a {
+    display: flex;
+    align-items: center;
+    gap: var(--s-4);
+    height: var(--node);
+    text-decoration: none;
+}
+
+.pui-cs-index a::before {
+    content: "";
+    position: relative;
+    flex: 0 0 var(--node);
+    height: var(--node);
+    border: 2px solid var(--rail-ring);
+    border-radius: 50%;
+    background: var(--rail-hole);
+    /* Same three layers as the lit state, at zero, so the glow can swell in */
+    box-shadow: 0 0 0 0 transparent, 0 0 0 0 transparent, 0 0 0 0 transparent;
+    transition:
+        background-color var(--dur-glow) var(--ease-out),
+        border-color var(--dur-glow) var(--ease-out),
+        box-shadow var(--dur-glow) var(--ease-out),
+        filter var(--dur-glow) var(--ease-out);
+}
+
+.pui-cs-index a.is-passed::before {
+    border-color: var(--highlight);
+}
+
+.pui-cs-index a.is-current::before {
+    border-color: var(--highlight);
+    background: var(--highlight);
+    filter: var(--hover-blur);
+    box-shadow:
+        0 0 4px 1px var(--rail-core),
+        0 0 12px 6px var(--rail-glow),
+        0 0 30px 14px var(--rail-glow-soft);
+}
+
+.pui-cs-index-label {
+    font-size: var(--fs-kicker);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    line-height: 1.3;
+    color: var(--text-tertiary);
+    transition: color var(--dur-glow) var(--ease-out);
+}
+
+.pui-cs-index a.is-current .pui-cs-index-label {
+    color: var(--text-primary);
+}
+
+.pui-cs-back,
+.pui-cs-title a,
+.pui-cs-cta,
+.pui-cs-next {
+    transition: filter var(--dur-1) var(--ease-out);
+}
+
+.pui-cs-back:hover,
+.pui-cs-title a:hover,
+.pui-cs-cta:hover,
+.pui-cs-next:hover {
+    filter: var(--hover-blur);
+}
+
+/* ----- Hero ----- */
+.pui-cs-hero {
+    margin-bottom: var(--s-6);
+    padding-bottom: var(--s-7);
+    border-bottom: 1px solid var(--hairline);
+    scroll-margin-top: 6rem;
+}
+
+.pui-cs-hero-top {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--s-4);
+}
+
+.pui-cs-title {
+    margin: var(--s-4) 0;
+    font-family: var(--font-serif);
+    font-size: var(--fs-display);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: var(--text-primary);
+    text-wrap: balance;
+}
+
+.pui-cs-title a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.pui-cs-sub {
+    max-width: 44ch;
+    margin: 0;
+    font-size: 1.25rem;
+    font-style: italic;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+.pui-cs-tags {
+    margin-top: var(--s-5);
+}
+
+.pui-cs-facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
+    gap: var(--s-5) var(--s-6);
+    margin: var(--s-7) 0 0;
+    padding: var(--s-5);
+    background: linear-gradient(135deg, var(--facts-tint), var(--facts-tint-fade));
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-sm);
+}
+
+.pui-cs-facts dt {
+    margin-bottom: var(--s-2);
+}
+
+.pui-cs-facts dd {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--text-primary);
+}
+
+/* ----- Sections ----- */
+.pui-cs-section {
+    margin-top: 7rem;
+    scroll-margin-top: 6rem;
+    counter-increment: pui-section;
+}
+
+.pui-cs-eyebrow {
+    display: flex;
+    gap: var(--s-3);
+    margin: 0 0 var(--s-4);
+    font-size: var(--fs-kicker);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--text-tertiary);
+}
+
+.pui-cs-num::before {
+    content: counter(pui-section, decimal-leading-zero);
+    color: var(--accent);
+}
+
+.pui-cs-heading {
+    max-width: 26ch;
+    margin: 0 0 var(--s-5);
+    font-family: var(--font-serif);
+    font-size: var(--fs-heading);
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--text-primary);
+    text-wrap: balance;
+}
+
+.pui-cs-prose :where(p, li) {
+    max-width: 66ch;
+    margin: 0 0 var(--s-4);
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    line-height: var(--lh);
+    color: var(--text-secondary);
+}
+
+.pui-cs-prose :where(strong) {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.pui-cs-prose :where(h3) {
+    margin: var(--s-6) 0 var(--s-3);
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--text-primary);
+}
+
+.pui-cs-prose :where(a:not([class])) {
+    color: var(--text-primary);
+    text-decoration: underline;
+    text-decoration-color: var(--hairline-strong);
+    text-underline-offset: 3px;
+}
+
+/* ----- Figures, media, rows ----- */
+.pui-cs-figure,
+.pui-cs-block {
+    margin: var(--s-6) 0;
+}
+
+.pui-cs-caption {
+    max-width: 66ch;
+    margin: var(--s-3) 0 0;
+    font-family: var(--font-serif);
+    font-size: 0.9rem;
+    font-style: italic;
+    line-height: 1.6;
+    color: var(--text-tertiary);
+}
+
+.pui-cs-caption::before {
+    counter-increment: pui-fig;
+    content: "Fig. " counter(pui-fig, decimal-leading-zero);
+    margin-right: var(--s-3);
+    font-size: var(--fs-kicker);
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--accent);
+}
+
+.pui-cs-media {
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    background: var(--glass);
+    border: 1px solid var(--hairline);
+}
+
+.pui-cs-media img {
+    display: block;
+    width: 100%;
+}
+
+.pui-cs-media--sm { max-width: 420px; }
+.pui-cs-media--md { max-width: 600px; }
+.pui-cs-media--lg { max-width: 800px; }
+
+.pui-cs-media--placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 260px;
+    font-style: italic;
+    color: var(--text-secondary);
+    background: transparent;
+    border: 1px dashed var(--dashed);
+}
+
+.pui-cs-row {
+    display: grid;
+    gap: var(--s-4);
+    align-items: start;
+}
+
+.pui-cs-row > * { min-width: 0; }
+.pui-cs-row--equal, .pui-cs-row--pair { grid-template-columns: 1fr 1fr; }
+.pui-cs-row--flow { grid-template-columns: 0.85fr 1.15fr; }
+.pui-cs-row--3 { grid-template-columns: repeat(3, 1fr); }
+.pui-cs-row--quad { grid-template-columns: repeat(4, 1fr); }
+
+/* ----- Rollout ----- */
+.pui-cs-rollout {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    gap: var(--s-4);
+}
+
+.pui-cs-rollout-card {
+    padding: var(--s-4) var(--s-5);
+    background: var(--glass);
+    border: 1px solid var(--hairline);
+}
+
+.pui-cs-rollout-card p {
+    margin: 0;
+    font-size: var(--fs-2);
+    line-height: var(--lh);
+    color: var(--text-secondary);
+}
+
+.pui-cs-rollout-card .pui-cs-rollout-phase {
+    margin-bottom: var(--s-2);
+    font-size: var(--fs-1);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--accent);
+}
+
+/* ----- CTA and pager ----- */
+.pui-cs-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 66ch;
+    margin: var(--s-5) 0;
+    padding: var(--s-4) var(--s-5);
+    text-decoration: none;
+    background: var(--glass);
+    border: 1px solid var(--hairline);
+}
+
+.pui-cs-cta .pui-cs-kicker {
+    margin-bottom: var(--s-1);
+}
+
+.pui-cs-cta-title {
+    display: block;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+}
+
+.pui-cs-pager {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--s-6);
+    margin: 8rem 0 0;
+    padding: var(--s-6) 0 var(--s-7);
+    border-top: 1px solid var(--hairline);
+}
+
+.pui-cs-next {
+    display: block;
+    text-decoration: none;
+}
+
+.pui-cs-next--next {
+    grid-column: 2;
+    text-align: right;
+}
+
+.pui-cs-next-title {
+    display: block;
+    margin-top: var(--s-3);
+    font-size: var(--fs-heading);
+    line-height: 1.2;
+    color: var(--text-primary);
+}
+
+@media screen and (max-width: 1000px) {
+    .pui-cs { grid-template-columns: minmax(0, 1fr); }
+    .pui-cs-rail { display: none; }
+    .pui-cs-main { max-width: none; }
+}
+
+@media screen and (max-width: 880px) {
+    .pui-cs-row--equal, .pui-cs-row--flow, .pui-cs-row--3, .pui-cs-row--quad { grid-template-columns: 1fr; }
+    .pui-cs-rollout { grid-auto-flow: row; }
+}
+
+@media screen and (max-width: 666px) {
+    .pui-cs { padding: var(--s-6) var(--s-4) 0; }
+    .pui-cs-section { margin-top: 4.5rem; }
+    .pui-cs-facts { grid-template-columns: 1fr 1fr; margin-top: var(--s-6); }
+    .pui-cs-sub { font-size: 1.1rem; }
+    .pui-cs-pager { grid-template-columns: 1fr; }
+    .pui-cs-next--next { grid-column: auto; }
+}

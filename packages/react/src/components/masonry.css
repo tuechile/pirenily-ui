@@ -1,0 +1,25 @@
+.pui-masonry {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--s-3);
+}
+
+.pui-masonry img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.pui-masonry--natural img {
+    aspect-ratio: auto;
+    height: auto;
+}
+
+@media screen and (max-width: 880px) {
+    .pui-masonry { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media screen and (max-width: 666px) {
+    .pui-masonry { grid-template-columns: 1fr; gap: var(--s-2); }
+}

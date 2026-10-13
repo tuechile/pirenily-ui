@@ -1,0 +1,19 @@
+.pui-tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-2);
+}
+
+.pui-tag {
+    padding: 0.2rem 0.65rem;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 0.75rem;
+    line-height: 1.4;
+    color: var(--pill-text);
+    background: var(--glass);
+    border: 1px solid var(--hairline-strong);
+    border-radius: var(--r-pill);
+    white-space: nowrap;
+    user-select: none;
+}

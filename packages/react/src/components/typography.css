@@ -1,0 +1,45 @@
+.pui-kicker {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: var(--fs-kicker);
+    font-weight: 400;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--text-tertiary);
+}
+
+.pui-kicker--accent {
+    color: var(--accent);
+}
+
+.pui-page-title {
+    margin: 40px;
+    font-family: var(--font-display);
+    font-weight: normal;
+    font-size: clamp(2.25rem, 4vw, 4rem);
+    text-align: center;
+    color: var(--highlight);
+}
+
+.pui-page-note {
+    max-width: 90vw;
+    margin: -1.5rem auto var(--s-5);
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 0.9rem;
+    line-height: var(--lh);
+    text-align: center;
+    color: var(--text);
+}
+
+.pui-page-note a {
+    color: var(--lead);
+    text-decoration: none;
+    border-bottom: 1px solid var(--hairline);
+    transition: filter var(--dur-1) var(--ease-out);
+}
+
+.pui-page-note a:hover {
+    filter: var(--hover-blur);
+}

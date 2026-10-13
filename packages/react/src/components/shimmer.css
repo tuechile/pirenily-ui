@@ -1,0 +1,27 @@
+.pui-shimmer {
+    cursor: pointer;
+}
+
+.pui-shimmer:hover,
+a:hover > .pui-shimmer,
+a:focus-visible > .pui-shimmer {
+    background: linear-gradient(45deg, var(--accent), var(--highlight), var(--accent));
+    background-size: 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: pui-shimmer 2s infinite linear;
+}
+
+@keyframes pui-shimmer {
+    0% { background-position: 0%; }
+    100% { background-position: 100%; }
+}
+
+.pui-feather {
+    display: block;
+    -webkit-mask-image: var(--feather-mask);
+    -webkit-mask-composite: source-in;
+    mask-image: var(--feather-mask);
+    mask-composite: intersect;
+}
