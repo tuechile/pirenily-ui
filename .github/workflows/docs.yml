@@ -1,6 +1,6 @@
 name: Docs
 
-# Builds apps/docs and publishes it to GitHub Pages on every push to main
+# Builds the docs site and Storybook and publishes both to GitHub Pages on every push to main
 on:
   push:
     branches: [main]
@@ -27,6 +27,9 @@ jobs:
       - run: npm ci
       - run: npm run typecheck
       - run: npm run build -w @pirenily-ui/docs
+      - run: npm run build -w @pirenily-ui/storybook
+      # Storybook lives next to the docs at /storybook/
+      - run: cp -R apps/storybook/dist apps/docs/dist/storybook
       - uses: actions/upload-pages-artifact@v3
         with:
           path: apps/docs/dist

@@ -1,0 +1,29 @@
+{
+  "name": "@pirenily-ui/storybook",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "storybook dev -p 6006",
+    "build": "storybook build -o dist"
+  },
+  "dependencies": {
+    "@pirenily-ui/react": "*",
+    "@pirenily-ui/tokens": "*",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "^8.6.14",
+    "@storybook/blocks": "^8.6.14",
+    "@storybook/manager-api": "^8.6.14",
+    "@storybook/react": "^8.6.14",
+    "@storybook/react-vite": "^8.6.14",
+    "@storybook/test": "^8.6.14",
+    "@storybook/theming": "^8.6.14",
+    "@vitejs/plugin-react": "^4.7.0",
+    "storybook": "^8.6.14",
+    "typescript": "^5.9.3",
+    "vite": "^5.4.21"
+  }
+}

@@ -7,7 +7,7 @@ Components are split into two views:
 - **Essentials** (14): general-purpose building blocks in the Pirenily look. Button, Tag, Typography, View toggle, Side tabs, Accordion, Card, Lightbox, Masonry, Navbar, Footer, Callout & Stats, Reading progress, Loader.
 - **Signature** (7): the detailed, one-of-a-kind pieces that make pirenily.com feel like itself. Finder, Hover preview, Flip card, Scroll mouse, Fire crackle, Shimmer & feather, and the Case-study layout with its glowing progress rail.
 
-The docs site, **[pirenily.com/pirenily-ui](https://pirenily.com/pirenily-ui/)**, shows every component live, with a switch between the two views. It deploys from `apps/docs` on every push to `main`.
+The docs site, **[pirenily.com/pirenily-ui](https://pirenily.com/pirenily-ui/)**, shows every component live, with a switch between the two views. **[Storybook](https://pirenily.com/pirenily-ui/storybook/)** has a page per component with live controls, and a Foundations › Effects section that shows each hover and motion effect on its own, named, with the components that use it. Both deploy on every push to `main`.
 
 ## Packages
 
@@ -118,6 +118,7 @@ Component classes are prefixed `pui-` so they don't collide with yours.
 ```bash
 npm install
 npm run dev          # docs site at localhost:5173, reading component source directly
+npm run storybook    # Storybook at localhost:6006
 npm run typecheck
 npm run build        # registry.json, the React package, and the docs site
 npm run registry     # rebuild registry.json after changing a component
@@ -130,12 +131,13 @@ packages/
                      one .tsx + .css per component, flat, so the CLI can copy them as-is
   cli/bin.mjs        no dependencies; reads registry.json
 apps/docs/           Vite + React docs with the Essentials / Signature switch
+apps/storybook/      Storybook: a page per component, plus Foundations (tokens, effects)
 scripts/
   registry.config.mjs   which files make up each component, its view, and its dependencies
   build-registry.mjs    inlines them into registry.json
 ```
 
-To add a component: put `name.tsx` and `name.css` in `packages/react/src/components`, export it from `essentials.ts` or `signature.ts`, list it in `scripts/registry.config.mjs`, add a demo in `apps/docs/src`, then run `npm run registry`.
+To add a component: put `name.tsx` and `name.css` in `packages/react/src/components`, export it from `essentials.ts` or `signature.ts`, list it in `scripts/registry.config.mjs`, add a demo in `apps/docs/src` and a story in `apps/storybook/stories`, then run `npm run registry`.
 
 ## License
 

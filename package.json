@@ -10,7 +10,8 @@
     "dev": "npm run dev -w @pirenily-ui/docs",
     "build": "npm run registry && npm run build -w @pirenily-ui/react && npm run build -w @pirenily-ui/docs",
     "registry": "node scripts/build-registry.mjs",
-    "typecheck": "tsc -p packages/react --noEmit && tsc -p apps/docs --noEmit"
+    "typecheck": "tsc -p packages/react --noEmit && tsc -p apps/docs --noEmit && tsc -p apps/storybook --noEmit",
+    "storybook": "npm run dev -w @pirenily-ui/storybook"
   },
   "engines": {
     "node": ">=18"

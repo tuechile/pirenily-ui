@@ -48,12 +48,13 @@ export function App() {
                         { href: "#start", label: "Start" },
                         { href: "#essentials", label: "Essentials", current: mode === "essentials" },
                         { href: "#signature", label: "Signature", current: mode === "signature" },
+                        { href: "./storybook/", label: "Storybook" },
                         { href: "https://github.com/tuechile/pirenily-ui", label: "GitHub" },
                     ]}
                 />
                 <Finder names={["Pirenily UI", "Chi Le", "Iron Pig", "Emily", "Chi Bell"]} onSearch={find} />
                 <div className="d-landing-foot">
-                    <p>Dark, serif React components from <a href="https://pirenily.com" target="_blank" rel="noopener">pirenily.com</a>, with a CLI.</p>
+                    <p>Dark, serif React components from <a href="https://pirenily.com" target="_blank" rel="noopener">pirenily.com</a>, with a CLI. Every component and effect, one at a time: <a href="./storybook/">Storybook</a>.</p>
                     <ScrollMouse href="#start" aria-label="Scroll down to get started" />
                 </div>
             </div>

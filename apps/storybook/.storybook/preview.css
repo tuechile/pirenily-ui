@@ -1,0 +1,19 @@
+/* The display font isn't part of the kit; Storybook loads it the way pirenily.com does */
+@font-face {
+    font-family: "BHN Cinema";
+    src: url("../../docs/src/assets/BHN_CINEMA.TTF") format("truetype");
+    font-display: swap;
+}
+
+body {
+    background: #000;
+}
+
+/* Docs pages: keep Storybook's prose readable on black */
+.sbdocs.sbdocs-wrapper {
+    background: #000;
+}
+
+.sbdocs .sbdocs-content {
+    font-family: "Crimson Text", serif;
+}
