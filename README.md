@@ -15,7 +15,7 @@ The docs site, **[pirenily.com/pirenily-ui](https://pirenily.com/pirenily-ui/)**
 |---|---|
 | [`pirenily-ui`](packages/cli) | The CLI: `init`, `add`, `list` |
 | [`@pirenily-ui/react`](packages/react) | All components as a package; also `/essentials` and `/signature` entry points |
-| [`@pirenily-ui/tokens`](packages/tokens) | CSS custom properties, base styles, and the BHN Cinema font |
+| [`@pirenily-ui/tokens`](packages/tokens) | CSS custom properties and base styles |
 
 ## Quick start
 
@@ -24,7 +24,7 @@ The docs site, **[pirenily.com/pirenily-ui](https://pirenily.com/pirenily-ui/)**
 Like shadcn/ui, the CLI copies each component's `.tsx` and `.css` into your app, so you own the code and can change anything.
 
 ```bash
-npx pirenily-ui init                    # pirenily-ui.json, tokens, font
+npx pirenily-ui init                    # pirenily-ui.json and tokens
 npx pirenily-ui add card view-toggle    # plus anything they depend on
 npx pirenily-ui add --signature         # every Signature component
 npx pirenily-ui list
@@ -39,6 +39,8 @@ import "./styles/pirenily/index.css";
 ```html
 <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
 ```
+
+**Display font (optional).** Big titles (the logo, Finder, page titles) use `--font-display`, which looks for a font named "BHN Cinema". It isn't included, since its license doesn't allow redistribution. Add your own `@font-face` with that name, or set `--font-display` to any font; without one they fall back to Crimson Text.
 
 Until the packages are on npm, run the CLI straight from GitHub:
 
@@ -106,7 +108,7 @@ Component classes are prefixed `pui-` so they don't collide with yours.
 ## The look
 
 - Black background, grey serif text, near-white titles, one teal accent (`#1ca591`).
-- *BHN Cinema* only for the logo and big titles; *Crimson Text* for everything else, often italic.
+- A display font (BHN Cinema on pirenily.com) only for the logo and big titles; *Crimson Text* for everything else, often italic.
 - Hover is a soft `blur(1px)`, not a color change. Frosted panels with hairline borders.
 - Nothing fades: things appear and disappear instantly. One fast-out easing curve, no bounce.
 - No CSS framework and no icon library. `prefers-reduced-motion` turns animations off.
@@ -123,7 +125,7 @@ npm run registry     # rebuild registry.json after changing a component
 
 ```
 packages/
-  tokens/            tokens.css, base.css, fonts/
+  tokens/            tokens.css, base.css
   react/src/components/
                      one .tsx + .css per component, flat, so the CLI can copy them as-is
   cli/bin.mjs        no dependencies; reads registry.json
@@ -135,6 +137,6 @@ scripts/
 
 To add a component: put `name.tsx` and `name.css` in `packages/react/src/components`, export it from `essentials.ts` or `signature.ts`, list it in `scripts/registry.config.mjs`, add a demo in `apps/docs/src`, then run `npm run registry`.
 
-## Assets
+## License
 
-`BHN_CINEMA.TTF` is the display font used on pirenily.com. The loader GIF and contact icons in `apps/docs/public/assets` were drawn by Chi Le; the photos there are only for the docs demos.
+Code is [MIT](LICENSE). The docs site's assets aren't part of that: BHN Cinema (`apps/docs/src/assets`) is only used to render the docs, and the loader GIF, contact icons and photos in `apps/docs/public/assets` are Chi Le's own, there for the demos.

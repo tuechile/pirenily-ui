@@ -119,6 +119,7 @@ async function init(flags, registry) {
     install(registry, ["tokens", "utils"], config, flags.overwrite);
     console.log(`\nImport the tokens once, at the root of your app:\n\n  ${c.teal(`import "./${relative("src", styles) || styles}/index.css";`)}\n`);
     console.log(`And load Crimson Text, e.g. from Google Fonts:\n  ${c.dim("https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap")}\n`);
+    console.log(c.dim(`Optional: big titles use a display font. Add an @font-face named "BHN Cinema" if you have it,\nor set --font-display to any font. Without one they fall back to Crimson Text.\n`));
 }
 
 function install(registry, names, config, overwrite) {

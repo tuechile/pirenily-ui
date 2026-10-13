@@ -3,12 +3,6 @@
    The only place colors live. Every component reads from here;
    add a token rather than hardcoding a hex or rgba.
    ========================================================= */
-@font-face {
-    font-family: "BHN Cinema";
-    src: url("./fonts/BHN_CINEMA.TTF") format("truetype");
-    font-display: swap;
-}
-
 :root {
     color-scheme: dark;
 
@@ -67,6 +61,9 @@
     --rail-glow-soft: rgba(28, 165, 145, 0.3);
 
     /* ----- Type ----- */
+    /* BHN Cinema isn't bundled (its license doesn't allow redistribution). Without it,
+       display text falls back to Crimson Text. Bring your own with an @font-face named
+       "BHN Cinema", or point --font-display at any font you like. */
     --font-display: "BHN Cinema", "Crimson Text", serif;
     --font-serif: "Crimson Text", serif;
     --fs-0: 0.5rem;

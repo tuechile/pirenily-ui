@@ -1,4 +1,11 @@
 /* Docs-site layout only; the components carry their own styles */
+
+/* The display font isn't part of the kit; the docs load it the way pirenily.com does */
+@font-face {
+    font-family: "BHN Cinema";
+    src: url("./assets/BHN_CINEMA.TTF") format("truetype");
+    font-display: swap;
+}
 .d-landing {
     display: flex;
     flex-direction: column;

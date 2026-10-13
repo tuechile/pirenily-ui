@@ -2,13 +2,29 @@
   "name": "pirenily-ui",
   "version": "0.1.0",
   "description": "Add Pirenily UI components to your project: npx pirenily-ui add card",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "type": "module",
-  "bin": { "pirenily-ui": "./bin.mjs" },
-  "files": ["bin.mjs", "registry.json"],
-  "engines": { "node": ">=18" },
+  "bin": {
+    "pirenily-ui": "./bin.mjs"
+  },
+  "files": [
+    "LICENSE",
+    "README.md",
+    "bin.mjs",
+    "registry.json"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "prepublishOnly": "node ../../scripts/build-registry.mjs"
   },
-  "repository": { "type": "git", "url": "https://github.com/tuechile/pirenily-ui", "directory": "packages/cli" }
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tuechile/pirenily-ui",
+    "directory": "packages/cli"
+  },
+  "author": "Chi Le",
+  "homepage": "https://pirenily.com/pirenily-ui/",
+  "bugs": "https://github.com/tuechile/pirenily-ui/issues"
 }

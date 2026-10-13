@@ -2,18 +2,33 @@
   "name": "@pirenily-ui/react",
   "version": "0.1.0",
   "description": "Dark, serif, cinematic React components from pirenily.com",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "type": "module",
-  "files": ["dist"],
+  "files": [
+    "LICENSE",
+    "README.md",
+    "dist"
+  ],
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
-    ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" },
-    "./essentials": { "types": "./dist/essentials.d.ts", "import": "./dist/essentials.js" },
-    "./signature": { "types": "./dist/signature.d.ts", "import": "./dist/signature.js" },
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./essentials": {
+      "types": "./dist/essentials.d.ts",
+      "import": "./dist/essentials.js"
+    },
+    "./signature": {
+      "types": "./dist/signature.d.ts",
+      "import": "./dist/signature.js"
+    },
     "./styles.css": "./dist/index.css"
   },
-  "sideEffects": ["*.css"],
+  "sideEffects": [
+    "*.css"
+  ],
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch"
@@ -31,5 +46,15 @@
     "tsup": "^8.3.0",
     "typescript": "^5.6.0"
   },
-  "repository": { "type": "git", "url": "https://github.com/tuechile/pirenily-ui", "directory": "packages/react" }
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tuechile/pirenily-ui",
+    "directory": "packages/react"
+  },
+  "author": "Chi Le",
+  "homepage": "https://pirenily.com/pirenily-ui/",
+  "bugs": "https://github.com/tuechile/pirenily-ui/issues",
+  "publishConfig": {
+    "access": "public"
+  }
 }

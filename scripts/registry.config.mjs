@@ -2,8 +2,8 @@
 // (or packages/tokens for "tokens"). dependencies are other items, added first.
 export const items = [
     // ----- Foundation -----
-    { name: "tokens", category: "foundation", description: "Colors, type, spacing and motion tokens, base styles, and the BHN Cinema font", target: "styles",
-      root: "packages/tokens", files: ["index.css", "tokens.css", "base.css", "fonts/BHN_CINEMA.TTF"] },
+    { name: "tokens", category: "foundation", description: "Colors, type, spacing and motion tokens and base styles", target: "styles",
+      root: "packages/tokens", files: ["index.css", "tokens.css", "base.css"] },
     { name: "utils", category: "foundation", description: "cx() class joiner and a hover check", files: ["utils.ts"] },
 
     // ----- Essentials -----
