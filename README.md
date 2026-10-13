@@ -7,7 +7,7 @@ Components are split into two views:
 - **Essentials** (14): general-purpose building blocks in the Pirenily look. Button, Tag, Typography, View toggle, Side tabs, Accordion, Card, Lightbox, Masonry, Navbar, Footer, Callout & Stats, Reading progress, Loader.
 - **Signature** (7): the detailed, one-of-a-kind pieces that make pirenily.com feel like itself. Finder, Hover preview, Flip card, Scroll mouse, Fire crackle, Shimmer & feather, and the Case-study layout with its glowing progress rail.
 
-The docs site (`apps/docs`) shows every component live, with a switch between the two views.
+The docs site, **[pirenily.com/pirenily-ui](https://pirenily.com/pirenily-ui/)**, shows every component live, with a switch between the two views. It deploys from `apps/docs` on every push to `main`.
 
 ## Packages
 
